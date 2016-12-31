@@ -45,18 +45,25 @@ def multiply(x,y):
         print "Returns p1={}, p2={}, p3={}, n={}, result={}".format(p1, p2, p3, n, temp)
     return temp
     
+def fn(n):
+    if (n > 1):
+        print "Still Going"
+        fn(n/2)
+        fn(n/2)
 
 def main():
-    global subscript
-    global printDebug
-    global called
+    fn(2)
+    return;
+  #  global subscript
+  #  global printDebug
+  #  global called
 
-    subscript = 10                      #global variable to identiy the number type. For example, 2 for binary and 10 for decimal
-    printDebug = "False"                #Controls if debug msg can be printed
+  #  subscript = 10                      #global variable to identiy the number type. For example, 2 for binary and 10 for decimal
+   # printDebug = "False"                #Controls if debug msg can be printed
     
-    result = (multiply('1980', '2315')
+   # result = (multiply('1980', '2315')
 
-    print "Result = {:,} found after {:,} recursive calls".format(int(result), called) 
+   #print "Result = {:,} found after {:,} recursive calls".format(int(result), called) 
     
 
 if __name__ == '__main__':
