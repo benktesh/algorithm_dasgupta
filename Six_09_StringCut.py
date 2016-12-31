@@ -1,57 +1,33 @@
 ##Author: Benktesh
 #benktesh1@gmail.com
-#12/29/2017
+#12/31/2017
 
 import numpy as np
 
 
-#Dasgupta Solutions for 6.8
-
-
-#    Given two strings x = x1x2    xn and y = y1y2    ym, we wish to nd the length of their longest
-#    common substring, that is, the largest k for which there are indices i and j with xixi+1    xi+k-1 =
-#    yjyj+1    yj+k-1. Show how to do this in time O(mn).
-
+#Dasgupta Solutions for 6.9
 '''
+#   A certain string-processing language offers a primitive operation which splits a string into two
+#   pieces. Since this operation involves copying the original string, it takes n units of time for a
+#   string of length n, regardless of the location of the cut. Suppose, now, that you want to break a
+#   string into many pieces. The order in which the breaks are made can affect the total running
+#   time. For example, if you want to cut a 20-character string at positions 3 and 10, then making
+#   the rst cut at position 3 incurs a total cost of 20 + 17 = 37, while doing position 10 rst has a
+#   better cost of 20 + 10 = 30.
+#   Give a dynamic programming algorithm that, given the locations of m cuts in a string of length
+#   n, nds the minimum cost of breaking the string into m+ 1 pieces.
+
+
     Solution Description:
-    This problem has optimal substructure property.
-
-    LCSSub(X_m, Y_n) = LCSSub(X_m-1, Y_n-1) + 1 if (X[m-1] == Y[n-1]) o Otherwise.
-
-    The max length substring is 
-    LCSSub(X_m, Y_n) = Max(LCSSub(X_i, Y_j) where 1 <= i,j <=m,n.  
-
-
+ 
 '''
-def LCS(X, Y):
-    '''
-        Table result stores lenght of common substrings. 
-    '''
-    result = np.array([[0 for x in range(len(Y)+1)] for x in range(len(X) + 1)], dtype=int)
-    
-    ending = 0 #stores the ending index of the max substrinng
-    maxLength = 0 #stores the max lenght of the substring
-  
-    #We iterate over two strings and compare each character pairs.
-    #For each substring match, we increase hte lenght of substring and fill the table
-    for i in range(1, len(X)):
-        for j in range(1, len(Y)):
-            if(X[i-1] == Y[j-1] ):
-                result[i,j] = result[i-1, j-1] + 1
-                if(result[i,j] > maxLength):
-                    maxLength = result[i,j]
-                    ending = i
-    
-    return maxLength,  X[ending-maxLength: ending]
+def splitString(X, m):
+    pass
 
 
 def main():
-    X = "OldSite:GeeksforGeeks.org";
-    Y = "NewSite:GeeksQuiz.com";
-    print "\nX: ", X, "\nY: " , Y
-    r = LCS(X, Y)
-    print "\nMax subsequence is '{}' and is {} character long ".format(r[1], r[0])
-
+    X = "OldSite:GeeksforGeeks.org"
+    pass
 
 if __name__ == '__main__':
     import sys
