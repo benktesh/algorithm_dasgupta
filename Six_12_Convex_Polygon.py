@@ -44,7 +44,7 @@ def convexPolygon(X,Y):
     if(n < 3): #there must be at least 3 points.
         return 0
     #M[i,j] stores minimum cost by veritices i, i+1, ..j
-    M = np.array([[9999 for x in range(n)] for x in range(n)], dtype=float)
+    M = np.array([[9999 for x in range(n)] for x in range(n)], dtype=int)
 
     for i in range(n):
         M[i,i] = 0
@@ -65,6 +65,7 @@ def convexPolygon(X,Y):
                     c = M[i,k] + M[k,j] + distance(i, k, X, Y) + distance(k, j, X, Y) 
                     if (c < M[i,j]):
                         M[i,j] = c
+                print M
         
     return M[0,n-1]    
 
