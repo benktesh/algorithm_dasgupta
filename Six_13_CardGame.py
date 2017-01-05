@@ -32,18 +32,20 @@ Solution/Solution approach:
 
 def cardGame(S):
     '''
-        Arguements:
-           
+        Arguements:    
     '''
     n = len(S)
-    M = np.array([[0 for x in range(n)]for x in range(n)])
+    M = np.array([[0 for x in range(n+1)]for x in range(n+1)])
     for i in range(n):
         M[i,i] = S[i]
-    print M
-    for i in range(n):
-        for j in range(n, 0, -1):
-            pass
-
+    
+    for i in range(0, n): 
+      for j in range(n): 
+          if (i <  j):
+            M[i][j]=max(S[i]-M[i+1][j],S[j]-M[i][j-1])
+            #print M
+               
+    return M[0, n-1]      
 
 def main():
     s= [10, 100, 1, 1]
@@ -62,7 +64,7 @@ if __name__ == '__main__':
     https://web.cs.dal.ca/~whidden/CS3110/assignments/a8_solution.pdf
     http://vlsicad.ucsd.edu/courses/cse101-w16/hw/hw4_solutions.pdf
     https://www.cs.bgu.ac.il/~michaluz/seminar/Dynamic_programming_and_board_games.pdf
-    
+
 
 
 
